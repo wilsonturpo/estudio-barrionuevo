@@ -1,0 +1,19 @@
+{
+  "name": "Estudio Barrio Nuevo",
+  "shortName": "Barrio Nuevo",
+  "label": "Nombre de demostración",
+  "tagline": "Orientación laboral clara para decisiones importantes",
+  "description": "Sitio de demostración para un estudio jurídico enfocado en derecho laboral peruano. La información debe validarse antes de publicarse.",
+  "whatsapp": {
+    "number": "",
+    "label": "WhatsApp pendiente de configurar"
+  },
+  "phone": "Teléfono pendiente de confirmar",
+  "email": "contacto@estudio-ejemplo.invalid",
+  "location": "Atención virtual y coordinación previa en Lima, Perú (referencia de demostración)",
+  "hours": "Lunes a viernes, 9:00 a. m. a 6:00 p. m. (horario de demostración)",
+  "seo": {
+    "titleSuffix": "Estudio Jurídico Laboral",
+    "defaultDescription": "Información laboral clara para trabajadores y empresas en Perú. Sitio de demostración sujeto a validación profesional."
+  }
+}

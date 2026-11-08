@@ -1,0 +1,16 @@
+---
+import "./Button.scss";
+
+const { href, variant = "primary", type = "button", target, rel, class: className = "" } = Astro.props;
+const classes = `button button--${variant} ${className}`.trim();
+---
+
+{href ? (
+  <a class={classes} href={href} target={target} rel={rel}>
+    <slot />
+  </a>
+) : (
+  <button class={classes} type={type}>
+    <slot />
+  </button>
+)}

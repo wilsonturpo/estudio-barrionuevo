@@ -1,0 +1,6 @@
+[
+  { "label": "Inicio", "path": "/" },
+  { "label": "Nosotros", "path": "/nosotros/" },
+  { "label": "Servicios", "path": "/servicios/" },
+  { "label": "Contacto", "path": "/contacto/" }
+]

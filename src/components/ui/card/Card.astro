@@ -1,0 +1,12 @@
+---
+import "./Card.scss";
+
+const { category, title, summary, href } = Astro.props;
+---
+
+<article class="service-card">
+  <p class="service-card__category">{category}</p>
+  <h3 class="service-card__title">{title}</h3>
+  <p class="service-card__summary">{summary}</p>
+  {href && <a class="service-card__link" href={href}>Conocer el enfoque <span aria-hidden="true">→</span></a>}
+</article>

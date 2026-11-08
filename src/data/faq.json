@@ -1,0 +1,18 @@
+[
+  {
+    "question": "¿La información del sitio reemplaza una asesoría?",
+    "answer": "No. Los contenidos son generales y buscan ayudarle a preparar una consulta. Cada situación laboral requiere revisar sus propios antecedentes."
+  },
+  {
+    "question": "¿Qué información conviene preparar antes de escribir?",
+    "answer": "Puede ordenar una descripción breve de los hechos, fechas relevantes y los documentos que ya tiene. No envíe documentos sensibles ni datos innecesarios por el formulario."
+  },
+  {
+    "question": "¿Atienden a trabajadores y empresas?",
+    "answer": "La estructura del sitio contempla ambos públicos. El estudio debe confirmar sus servicios definitivos antes de publicar la información comercial final."
+  },
+  {
+    "question": "¿El formulario guarda mis datos?",
+    "answer": "No. Esta versión no tiene backend ni almacenamiento local. Si se configura un WhatsApp válido, el mensaje se prepara en su dispositivo para que usted decida enviarlo."
+  }
+]

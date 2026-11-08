@@ -1,0 +1,15 @@
+---
+import "./WhatsAppButton.scss";
+import { localUrl } from "../../../utils/links.js";
+import { whatsappUrl } from "../../../utils/whatsapp.js";
+
+const { number } = Astro.props;
+const url = whatsappUrl(number, "Hola, deseo realizar una consulta laboral.");
+const href = url || localUrl("/contacto/");
+const label = url ? "Iniciar consulta por WhatsApp" : "Canal de WhatsApp pendiente: ver contacto";
+---
+
+<a class:list={["whatsapp-button", { "whatsapp-button--demo": !url }]} href={href} aria-label={label} target={url ? "_blank" : undefined} rel={url ? "noreferrer" : undefined}>
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M27.2 4.7A15.6 15.6 0 0 0 2.8 23.4L1 31l7.8-1.7A15.6 15.6 0 1 0 27.2 4.7ZM16 28.9a12.9 12.9 0 0 1-6.6-1.8l-.5-.3-4.6 1 1-4.5-.3-.5A12.9 12.9 0 1 1 16 28.9Zm7.1-9.7c-.4-.2-2.4-1.2-2.8-1.3-.4-.1-.7-.2-1 .2s-1.1 1.3-1.3 1.6c-.2.3-.5.3-.9.1-2.4-1.2-3.9-2.1-5.5-4.7-.4-.7.4-.7 1.1-2 .1-.3.1-.5 0-.7-.1-.2-1-2.3-1.4-3.1-.3-.8-.7-.7-1-.7h-.8c-.3 0-.7.1-1 .5s-1.4 1.4-1.4 3.5 1.5 4.1 1.7 4.4c.2.3 3 4.6 7.3 6.4 2.7 1.2 3.8 1.3 5.1 1.1.8-.1 2.4-1 2.8-2s.3-1.8.2-2c-.1-.2-.3-.3-.7-.5Z" fill="currentColor" /></svg>
+  <span class="whatsapp-button__text">{url ? "WhatsApp" : "Contacto"}</span>
+</a>

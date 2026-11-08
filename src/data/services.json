@@ -1,0 +1,80 @@
+[
+  {
+    "id": "despido-arbitrario",
+    "slug": "despido-arbitrario",
+    "category": "trabajadores",
+    "title": "Despido arbitrario",
+    "summary": "Revisión inicial de la comunicación, los antecedentes y las alternativas aplicables a su situación.",
+    "introduction": "Un cese laboral puede requerir una revisión cuidadosa de documentos, fechas y circunstancias. Este contenido es orientativo y no reemplaza una evaluación profesional del caso concreto.",
+    "audience": "Personas trabajadoras que desean comprender los pasos iniciales frente a una desvinculación.",
+    "commonIssues": ["Comunicación verbal o escrita del cese", "Entrega de beneficios y documentos de trabajo", "Plazos que conviene identificar antes de decidir"],
+    "scope": ["Lectura inicial de la información disponible", "Explicación general de rutas de atención", "Identificación de documentación que podría ser relevante"],
+    "questions": ["¿Qué documentos recibí al momento del cese?", "¿Qué fechas necesito ordenar?", "¿Qué alternativa de consulta corresponde a mi situación?"],
+    "featured": true
+  },
+  {
+    "id": "beneficios-sociales",
+    "slug": "beneficios-sociales",
+    "category": "trabajadores",
+    "title": "Beneficios sociales",
+    "summary": "Orientación para ordenar información sobre conceptos laborales y pagos pendientes.",
+    "introduction": "Las condiciones y conceptos laborales deben revisarse en función de la relación de trabajo y la documentación disponible. La información de esta página es general.",
+    "audience": "Personas trabajadoras que buscan organizar una consulta sobre beneficios sociales.",
+    "commonIssues": ["Dudas sobre conceptos incluidos en una liquidación", "Falta de constancias o boletas disponibles", "Necesidad de ordenar periodos y comunicaciones"],
+    "scope": ["Revisión orientativa de los datos proporcionados", "Explicación en lenguaje claro de los conceptos a consultar", "Preparación de una lista de siguientes pasos posibles"],
+    "questions": ["¿Qué periodos necesito considerar?", "¿Qué constancias puedo reunir?", "¿Qué información conviene explicar en una primera consulta?"],
+    "featured": true
+  },
+  {
+    "id": "hostigamiento-laboral",
+    "slug": "hostigamiento-laboral",
+    "category": "trabajadores",
+    "title": "Hostigamiento laboral",
+    "summary": "Espacio de orientación prudente para identificar canales y documentar hechos relevantes.",
+    "introduction": "Las situaciones que afectan la dignidad en el trabajo requieren una atención cuidadosa y confidencial. Una primera conversación permite comprender el contexto sin adelantar conclusiones.",
+    "audience": "Personas que requieren orientación inicial ante situaciones de hostigamiento en el entorno laboral.",
+    "commonIssues": ["Necesidad de ordenar un relato cronológico", "Dudas sobre canales internos disponibles", "Preocupación por conservar comunicaciones relevantes"],
+    "scope": ["Escucha inicial y explicación general de opciones", "Identificación de hechos y documentos a preservar", "Orientación para una consulta responsable"],
+    "questions": ["¿Qué hechos puedo describir con fechas?", "¿Existen comunicaciones que convenga conservar?", "¿Qué canal de atención resulta adecuado?"],
+    "featured": true
+  },
+  {
+    "id": "contratos-laborales",
+    "slug": "contratos-laborales",
+    "category": "trabajadores",
+    "title": "Contratos laborales",
+    "summary": "Lectura general de acuerdos y condiciones para formular una consulta mejor informada.",
+    "introduction": "Los documentos laborales se interpretan dentro de su contexto. Una revisión inicial ayuda a ordenar dudas y a preparar una conversación profesional.",
+    "audience": "Personas trabajadoras que desean entender mejor la documentación vinculada a su relación laboral.",
+    "commonIssues": ["Cláusulas que generan dudas", "Cambios en las condiciones de trabajo", "Documentos entregados sin explicación suficiente"],
+    "scope": ["Lectura orientativa del material compartido", "Explicación sencilla de los temas identificados", "Lista de información adicional que podría requerirse"],
+    "questions": ["¿Qué versión del documento tengo?", "¿Qué cambio deseo comprender?", "¿Qué antecedentes ayudan a explicar mi consulta?"],
+    "featured": false
+  },
+  {
+    "id": "asesoria-laboral-empresas",
+    "slug": "asesoria-laboral-empresas",
+    "category": "empresas",
+    "title": "Asesoría laboral para empresas",
+    "summary": "Acompañamiento preventivo para ordenar consultas laborales de la organización.",
+    "introduction": "Una gestión laboral informada puede ayudar a que una empresa tome decisiones con mayor claridad. El alcance se define después de conocer su contexto y necesidades.",
+    "audience": "Empresas y equipos de gestión que requieren una revisión laboral preventiva u orientación puntual.",
+    "commonIssues": ["Consultas sobre documentación interna", "Necesidad de ordenar procesos de personas", "Dudas previas a una decisión laboral"],
+    "scope": ["Levantamiento inicial de la consulta", "Priorización de asuntos a revisar", "Orientación general adaptada al contexto informado"],
+    "questions": ["¿Cuál es la decisión que la empresa necesita evaluar?", "¿Qué documentos o políticas están involucrados?", "¿Quiénes deben participar en la consulta?"],
+    "featured": true
+  },
+  {
+    "id": "inspecciones-sunafil",
+    "slug": "inspecciones-sunafil",
+    "category": "empresas",
+    "title": "Inspecciones SUNAFIL",
+    "summary": "Orientación para organizar la atención de una comunicación o requerimiento inspectivo.",
+    "introduction": "La recepción de una comunicación inspectiva requiere orden, lectura cuidadosa y coordinación interna. Esta página no sustituye el análisis profesional de un expediente.",
+    "audience": "Empresas que buscan organizar una consulta inicial vinculada con una inspección laboral.",
+    "commonIssues": ["Recepción de un requerimiento", "Necesidad de reunir documentación", "Coordinación de responsables internos"],
+    "scope": ["Lectura inicial de la comunicación recibida", "Organización de una lista documental", "Identificación de asuntos a revisar con prioridad"],
+    "questions": ["¿Qué documento se recibió y cuándo?", "¿Qué área conserva la información solicitada?", "¿Qué plazo aparece en la comunicación?"],
+    "featured": true
+  }
+]

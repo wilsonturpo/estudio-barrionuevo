@@ -1,0 +1,63 @@
+---
+import "./Navbar.scss";
+import { localUrl } from "../../../utils/links.js";
+
+const { items, currentPath, brand } = Astro.props;
+---
+
+<header class="site-nav" data-site-nav>
+  <div class="site-nav__inner container">
+    <a class="site-nav__brand" href={localUrl("/")} aria-label={`${brand}, inicio`}>
+      <span class="site-nav__monogram" aria-hidden="true">BN</span>
+      <span>
+        <strong>{brand}</strong>
+        <small>Estudio jurídico laboral</small>
+      </span>
+    </a>
+    <button class="site-nav__toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-nav-toggle>
+      <span class="site-nav__toggle-label">Menú</span>
+      <span class="site-nav__toggle-icon" aria-hidden="true"></span>
+    </button>
+    <nav class="site-nav__menu" id="primary-navigation" aria-label="Navegación principal" data-nav-menu>
+      <ul class="site-nav__links">
+        {items.map((item) => (
+          <li>
+            <a href={localUrl(item.path)} aria-current={currentPath === item.path ? "page" : undefined}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const nav = document.querySelector("[data-site-nav]");
+  const toggle = nav?.querySelector("[data-nav-toggle]");
+  const menu = nav?.querySelector("[data-nav-menu]");
+
+  if (nav && toggle && menu) {
+    nav.classList.add("site-nav--ready");
+
+    const closeMenu = () => {
+      toggle.setAttribute("aria-expanded", "false");
+      menu.removeAttribute("data-open");
+    };
+
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.getAttribute("aria-expanded") === "true";
+      toggle.setAttribute("aria-expanded", String(!isOpen));
+      menu.toggleAttribute("data-open", !isOpen);
+    });
+
+    menu.addEventListener("click", (event) => {
+      if (event.target instanceof HTMLAnchorElement) closeMenu();
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+  }
+</script>
