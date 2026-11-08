@@ -1,19 +1,18 @@
 {
-  "name": "Estudio Barrio Nuevo",
-  "shortName": "Barrio Nuevo",
-  "label": "Nombre de demostración",
+  "name": "Estudio Barrionuevo & Asociados",
+  "shortName": "Barrionuevo & Asociados",
   "tagline": "Orientación laboral clara para decisiones importantes",
-  "description": "Sitio de demostración para un estudio jurídico enfocado en derecho laboral peruano. La información debe validarse antes de publicarse.",
+  "description": "Estudio jurídico orientado al derecho laboral peruano para trabajadores y empresas.",
   "whatsapp": {
     "number": "",
-    "label": "WhatsApp pendiente de configurar"
+    "label": "Canales de contacto en actualización"
   },
-  "phone": "Teléfono pendiente de confirmar",
-  "email": "contacto@estudio-ejemplo.invalid",
-  "location": "Atención virtual y coordinación previa en Lima, Perú (referencia de demostración)",
-  "hours": "Lunes a viernes, 9:00 a. m. a 6:00 p. m. (horario de demostración)",
+  "phone": "",
+  "email": "",
+  "location": "",
+  "hours": "",
   "seo": {
     "titleSuffix": "Estudio Jurídico Laboral",
-    "defaultDescription": "Información laboral clara para trabajadores y empresas en Perú. Sitio de demostración sujeto a validación profesional."
+    "defaultDescription": "Orientación en derecho laboral peruano para trabajadores y empresas."
   }
 }

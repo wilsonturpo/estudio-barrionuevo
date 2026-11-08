@@ -1,6 +1,6 @@
-# Estudio Barrio Nuevo
+# Estudio Barrionuevo & Asociados
 
-Sitio estático multipágina para un estudio jurídico laboral en Perú, construido con Astro y Sass. El contenido incluido es demostrativo: debe validarse y sustituirse antes de cualquier publicación comercial.
+Sitio estático multipágina para Estudio Barrionuevo & Asociados, construido con Astro y Sass.
 
 ## Requisitos
 
@@ -54,9 +54,9 @@ No hay contenido comercial cargado desde el cliente. Astro toma los JSON de `src
 | `team.json` | Perfiles profesionales cuando existan datos autorizados. |
 | `social-links.json` | Solo WhatsApp y Facebook. Los enlaces vacíos no se muestran. |
 
-### WhatsApp y formulario
+### WhatsApp y canales de contacto
 
-Defina `site.whatsapp.number` únicamente con un número real, internacional y solo en dígitos, de 8 a 15 caracteres. Mientras esté vacío, el formulario muestra un aviso de demostración y no abre ningún destinatario. El formulario no tiene backend, no usa `localStorage` y no solicita documentos ni datos sensibles.
+Defina `site.whatsapp.number` únicamente con un número real, internacional y solo en dígitos, de 8 a 15 caracteres. Mientras esté vacío, el botón de WhatsApp y el formulario no se muestran. El sitio no tiene backend, no usa `localStorage` y no solicita documentos ni datos sensibles.
 
 Revise antes de publicar el nombre del estudio, responsables de privacidad, RUC, correo, teléfono, horario, ubicación, perfiles, enlaces sociales y todos los textos jurídicos.
 
@@ -66,7 +66,7 @@ La paleta se centraliza exclusivamente en `src/styles/themes/_theme.scss`. Las f
 
 ## SEO e indexación
 
-Sin `SITE_URL`, el sitio publica `robots.txt` con `Disallow: /` y añade `noindex`; evita indexar una demostración sin dominio real. Con `SITE_URL` configurado, Astro genera canonicals, habilita el sitemap y `robots.txt` permite rastreo.
+Sin `SITE_URL`, el sitio publica `robots.txt` con `Disallow: /` y añade `noindex` para entornos locales. Con `SITE_URL` configurado, Astro genera canonicals, habilita el sitemap y `robots.txt` permite rastreo.
 
 No se publica marcado `LegalService` hasta disponer de datos empresariales reales y verificables.
 

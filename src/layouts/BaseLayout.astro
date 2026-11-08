@@ -6,6 +6,7 @@ import WhatsAppButton from "../components/layout/whatsapp-button/WhatsAppButton.
 import site from "../data/site.json";
 import navigation from "../data/navigation.json";
 import socialLinks from "../data/social-links.json";
+import { isValidWhatsappNumber } from "../utils/whatsapp.js";
 
 const {
   title,
@@ -42,6 +43,6 @@ const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString(
       <slot />
     </main>
     <Footer site={site} navigation={navigation} socialLinks={socialLinks} />
-    <WhatsAppButton number={site.whatsapp.number} />
+    {isValidWhatsappNumber(site.whatsapp.number) && <WhatsAppButton number={site.whatsapp.number} />}
   </body>
 </html>

@@ -2,17 +2,16 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionTitle from "../components/ui/section-title/SectionTitle.astro";
 import CallToAction from "../components/sections/call-to-action/CallToAction.astro";
-import team from "../data/team.json";
 import { localUrl } from "../utils/links.js";
 ---
 
-<BaseLayout title="Nosotros" currentPath="/nosotros/" description="Presentación de demostración del enfoque de un estudio jurídico laboral peruano.">
+<BaseLayout title="Nosotros" currentPath="/nosotros/" description="Enfoque de Estudio Barrionuevo & Asociados en derecho laboral peruano.">
   <section class="about-hero section">
     <div class="container about-hero__grid">
       <div>
         <p class="eyebrow">Nosotros</p>
         <h1>Una práctica laboral construida desde la escucha.</h1>
-        <p>Este es un espacio de presentación para un estudio jurídico laboral. Su contenido final debe reflejar información profesional comprobada y autorizada.</p>
+        <p>Un estudio jurídico orientado a acompañar consultas laborales con orden, criterio y comunicación clara.</p>
       </div>
       <figure class="about-hero__visual">
         <div aria-hidden="true" class="about-hero__canvas"><span>Espacio editorial<br />para una imagen autorizada</span></div>
@@ -30,14 +29,11 @@ import { localUrl } from "../utils/links.js";
 
   <section class="section">
     <div class="container">
-      <SectionTitle eyebrow="Equipo" title="Perfiles pendientes de validación" intro="Los siguientes espacios son deliberadamente provisionales y no representan personas, credenciales o experiencias reales." />
-      <div class="about-team">
-        {team.map((member) => <article><div class="about-team__mark" aria-hidden="true">BN</div><p class="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.description}</p></article>)}
-      </div>
+      <SectionTitle eyebrow="Equipo" title="Profesionales del estudio" intro="La información profesional se publicará cuando esté disponible y autorizada." />
     </div>
   </section>
 
-  <CallToAction title="Conversemos sobre su consulta" text="El formulario de esta versión está preparado para proteger la información y no almacena sus respuestas." href={localUrl("/contacto/")} label="Contactar" />
+  <CallToAction title="Conozca nuestras áreas de orientación" text="Revise los servicios disponibles para trabajadores y empresas." href={localUrl("/servicios/")} label="Ver servicios" />
 </BaseLayout>
 
 <style>

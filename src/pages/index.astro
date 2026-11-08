@@ -9,12 +9,9 @@ import site from "../data/site.json";
 import services from "../data/services.json";
 import faqs from "../data/faq.json";
 import { localUrl } from "../utils/links.js";
-import { whatsappUrl } from "../utils/whatsapp.js";
 
 const workers = services.filter((service) => service.category === "trabajadores" && service.featured);
 const businesses = services.filter((service) => service.category === "empresas" && service.featured);
-const consultationUrl = whatsappUrl(site.whatsapp.number, "Hola, deseo realizar una consulta laboral.") || localUrl("/contacto/");
-const consultationLabel = site.whatsapp.number ? "Consultar por WhatsApp" : "Coordinar una consulta";
 ---
 
 <BaseLayout currentPath="/">
@@ -22,8 +19,8 @@ const consultationLabel = site.whatsapp.number ? "Consultar por WhatsApp" : "Coo
     eyebrow="Derecho laboral · Perú"
     title="Decisiones laborales con una mirada clara y serena."
     intro="Un espacio de orientación inicial para trabajadores y empresas que buscan comprender sus opciones antes de dar el siguiente paso."
-    ctaHref={consultationUrl}
-    ctaLabel={consultationLabel}
+    ctaHref={localUrl("/servicios/")}
+    ctaLabel="Conocer servicios"
   />
 
   <section class="section home-introduction">
@@ -33,15 +30,14 @@ const consultationLabel = site.whatsapp.number ? "Consultar por WhatsApp" : "Coo
         <h2>Escuchar primero. Orientar con claridad.</h2>
       </div>
       <div>
-        <p>Este sitio presenta la estructura de atención de <strong>{site.name}</strong>, nombre utilizado únicamente como demostración. El enfoque es comprender el contexto, ordenar la información relevante y explicar los siguientes pasos con lenguaje directo.</p>
-        <p class="provisional-note">Los servicios, datos de contacto y perfiles profesionales deben ser revisados por el estudio antes de su publicación definitiva.</p>
+        <p>En <strong>{site.name}</strong>, el enfoque es comprender el contexto, ordenar la información relevante y explicar los siguientes pasos con lenguaje directo.</p>
       </div>
     </div>
   </section>
 
   <section class="section section--ivory">
     <div class="container">
-      <SectionTitle eyebrow="Áreas de orientación" title="Servicios pensados para cada contexto" intro="Contenido demostrativo que puede ajustarse a la práctica y alcance definitivo del estudio." />
+      <SectionTitle eyebrow="Áreas de orientación" title="Servicios pensados para cada contexto" intro="Información general para trabajadores y empresas." />
       <div class="home-services">
         <ServiceGroup title="trabajadores" description="Consultas para trabajadores" services={workers} />
         <ServiceGroup title="empresas" description="Consultas para empresas" services={businesses} />
@@ -65,9 +61,9 @@ const consultationLabel = site.whatsapp.number ? "Consultar por WhatsApp" : "Coo
     <div class="container">
       <SectionTitle eyebrow="Cómo iniciar" title="Un proceso sencillo para orientar la primera conversación" />
       <ol class="home-process">
-        <li><span>1</span><div><h3>Comparta una consulta breve</h3><p>Indique si consulta como trabajador o empresa y el asunto general, sin enviar datos sensibles.</p></div></li>
+        <li><span>1</span><div><h3>Identifique su consulta</h3><p>Ubique el asunto general y si corresponde a una consulta como trabajador o empresa.</p></div></li>
         <li><span>2</span><div><h3>Ordenamos el contexto</h3><p>Identifique fechas, comunicaciones y documentos que ayuden a entender la situación.</p></div></li>
-        <li><span>3</span><div><h3>Coordine el siguiente paso</h3><p>El canal de atención definitivo debe ser confirmado por el estudio antes de publicar el sitio.</p></div></li>
+        <li><span>3</span><div><h3>Revise los canales disponibles</h3><p>Los canales de atención se publicarán próximamente.</p></div></li>
       </ol>
     </div>
   </section>
@@ -79,7 +75,7 @@ const consultationLabel = site.whatsapp.number ? "Consultar por WhatsApp" : "Coo
     </div>
   </section>
 
-  <CallToAction title="¿Desea organizar una consulta laboral?" text="Cuéntenos el tema de manera breve. Esta versión no almacena el contenido del formulario." href={localUrl("/contacto/")} label="Ir a contacto" />
+  <CallToAction title="Conozca nuestras áreas de orientación" text="Revise los servicios disponibles para trabajadores y empresas." href={localUrl("/servicios/")} label="Ver servicios" />
 </BaseLayout>
 
 <style>

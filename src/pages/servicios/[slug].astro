@@ -1,11 +1,8 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Button from "../../components/ui/button/Button.astro";
 import CallToAction from "../../components/sections/call-to-action/CallToAction.astro";
 import services from "../../data/services.json";
-import site from "../../data/site.json";
 import { localUrl } from "../../utils/links.js";
-import { whatsappUrl } from "../../utils/whatsapp.js";
 
 export function getStaticPaths() {
   return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
@@ -13,7 +10,6 @@ export function getStaticPaths() {
 
 const { service } = Astro.props;
 const audienceLabel = service.category === "trabajadores" ? "Para trabajadores" : "Para empresas";
-const contactUrl = whatsappUrl(site.whatsapp.number, `Hola, deseo realizar una consulta sobre ${service.title}.`) || localUrl("/contacto/");
 const relatedServices = services.filter((item) => item.category === service.category && item.slug !== service.slug).slice(0, 2);
 ---
 
@@ -24,7 +20,6 @@ const relatedServices = services.filter((item) => item.category === service.cate
       <p class="eyebrow">{audienceLabel}</p>
       <h1>{service.title}</h1>
       <p>{service.introduction}</p>
-      <Button href={contactUrl} variant="primary">{site.whatsapp.number ? "Consultar por WhatsApp" : "Coordinar una consulta"}</Button>
     </div>
   </section>
   <section class="section">
@@ -38,7 +33,7 @@ const relatedServices = services.filter((item) => item.category === service.cate
     </div>
   </section>
   {relatedServices.length > 0 && <section class="section section--ivory"><div class="container"><p class="eyebrow">También podría interesarle</p><div class="service-detail__related">{relatedServices.map((item) => <a href={localUrl(`/servicios/${item.slug}/`)}><span>{item.title}</span><span aria-hidden="true">→</span></a>)}</div></div></section>}
-  <CallToAction title="Cuéntenos brevemente su consulta" text="La información de esta página es general. El contacto inicial permite comprender su contexto sin adelantar conclusiones." href={localUrl("/contacto/")} label="Ir a contacto" />
+  <CallToAction title="Explore otras áreas de orientación" text="La información de esta página es general y debe evaluarse según las circunstancias de cada caso." href={localUrl("/servicios/")} label="Ver servicios" />
 </BaseLayout>
 
 <style>

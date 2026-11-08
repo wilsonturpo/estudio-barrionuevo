@@ -4,6 +4,7 @@ import { localUrl } from "../../../utils/links.js";
 
 const { site, navigation, socialLinks } = Astro.props;
 const activeSocialLinks = socialLinks.filter((item) => item.url);
+const hasContactDetails = Boolean(site.email || site.phone || site.hours);
 ---
 
 <footer class="site-footer">
@@ -11,7 +12,6 @@ const activeSocialLinks = socialLinks.filter((item) => item.url);
     <div class="site-footer__identity">
       <p class="site-footer__brand">{site.name}</p>
       <p>{site.tagline}</p>
-      <p class="site-footer__demo">{site.label}. Información sujeta a validación antes de su publicación definitiva.</p>
     </div>
     <div>
       <p class="site-footer__heading">Navegación</p>
@@ -22,11 +22,13 @@ const activeSocialLinks = socialLinks.filter((item) => item.url);
     </div>
     <div>
       <p class="site-footer__heading">Contacto</p>
-      <address class="site-footer__contact">
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-        <span>{site.phone}</span>
-        <span>{site.hours}</span>
-      </address>
+      {hasContactDetails ? (
+        <address class="site-footer__contact">
+          {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+          {site.phone && <span>{site.phone}</span>}
+          {site.hours && <span>{site.hours}</span>}
+        </address>
+      ) : <p class="site-footer__demo">Canales de contacto en actualización.</p>}
       {activeSocialLinks.length > 0 && (
         <ul class="site-footer__social">
           {activeSocialLinks.map((item) => <li><a href={item.url}>{item.label}</a></li>)}
@@ -35,7 +37,7 @@ const activeSocialLinks = socialLinks.filter((item) => item.url);
     </div>
   </div>
   <div class="site-footer__bottom container">
-    <span>© {new Date().getFullYear()} {site.name}. Sitio de demostración.</span>
+    <span>© {new Date().getFullYear()} {site.name}.</span>
     <span>Derecho laboral · Perú</span>
   </div>
 </footer>

@@ -22,13 +22,9 @@ for (const viewport of viewports) {
   });
 }
 
-test("floating contact target stays visible and adequately sized", async ({ page }) => {
+test("no floating contact target is rendered before a real channel is configured", async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 700 });
   await page.goto("/");
-  const box = await page.locator(".whatsapp-button").boundingBox();
 
-  expect(box).not.toBeNull();
-  expect(box.width).toBeGreaterThanOrEqual(44);
-  expect(box.height).toBeGreaterThanOrEqual(44);
-  expect(box.x + box.width).toBeLessThanOrEqual(320);
+  await expect(page.locator(".whatsapp-button")).toHaveCount(0);
 });

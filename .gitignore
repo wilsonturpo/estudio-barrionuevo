@@ -9,3 +9,4 @@ docs/audits/
 .env.*
 !.env.example
 *.local
+.playwright-mcp/

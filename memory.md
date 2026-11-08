@@ -34,6 +34,13 @@
 - GitHub account/repository name or final custom domain. This is only necessary before actual deployment.
 - Approved photographs or written permission to publish the supplied Justice painting.
 
+## Production preparation
+
+- The public name was updated to `Estudio Barrionuevo & Asociados`, supplied by the owner for the production request.
+- The owner chose to publish without contact channels. Placeholder email, phone, WhatsApp, schedule, location, team cards, contact form and floating contact button were removed from the public output. Contact now states that channels are being updated and no data is collected.
+- A verified privacy policy and real contact/legal data remain necessary before enabling any collection form or contact destination.
+- GitHub CLI was installed with owner authorization and authenticated as `wilsonturpo`. The verified public target repository is `https://github.com/wilsonturpo/estudio-barrionuevo`; it was confirmed empty before configuring it as `origin`.
+
 ## Verification status
 
 - `npm run build` passed after all routes and production configuration; Astro generated 12 pages plus `robots.txt`.
