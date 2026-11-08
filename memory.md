@@ -41,6 +41,8 @@
 - A verified privacy policy and real contact/legal data remain necessary before enabling any collection form or contact destination.
 - GitHub CLI was installed with owner authorization and authenticated as `wilsonturpo`. The verified public target repository is `https://github.com/wilsonturpo/estudio-barrionuevo`; it was confirmed empty before configuring it as `origin`.
 - The first public visual review identified a mobile navigation overlay that exposed the hero behind the open menu. The menu now covers the remaining viewport at mobile widths; regression tests pass before redeployment.
+- Production was deployed through the GitHub Actions Pages workflow to `https://wilsonturpo.github.io/estudio-barrionuevo/`. The verified workflow run is `42536838399` and completed successfully; GitHub reports a public Pages site with HTTPS enforced and `build_type: workflow`.
+- The public HTTPS review confirmed the repository base path works for home, services and generated service-detail routes. Visual checks passed at 375 x 812, 768 x 1024 and desktop; the mobile menu correction was verified on the published site. Browser console reported zero errors.
 
 ## Verification status
 
