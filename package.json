@@ -7,8 +7,10 @@
     "build": "astro build",
     "preview": "astro preview",
     "test": "playwright test",
+    "test:preview": "npm run build && playwright test --config=playwright.preview.config.js",
     "test:ui": "playwright test --ui",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "audit": "lighthouse http://127.0.0.1:4323 --only-categories=performance,accessibility,best-practices,seo --output=html --output-path=docs/audits/lighthouse.html --chrome-flags=\"--headless=new\""
   },
   "keywords": [
     "astro",
@@ -24,6 +26,8 @@
     "sass": "^1.108.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.65.0"
+    "@playwright/mcp": "^0.0.68",
+    "@playwright/test": "^1.65.0",
+    "lighthouse": "^13.6.0"
   }
 }

@@ -23,7 +23,7 @@
 .whatsapp-button--demo:hover { background: var(--color-primary-hover); }
 .whatsapp-button svg { height: 1.35rem; width: 1.35rem; }
 
-@media (max-width: 23rem) {
+@media (max-width: 64rem) {
   .whatsapp-button__text { display: none; }
   .whatsapp-button { border-radius: 50%; padding: 0; width: 3.25rem; justify-content: center; }
 }

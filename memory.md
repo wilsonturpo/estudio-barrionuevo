@@ -25,6 +25,7 @@
 - `chore: initialize Astro project foundation` - Git repository, local dependencies, static build configuration, ignore rules and continuity record.
 - `feat: add editable content and shared visual system` - JSON content catalogues, accessible base layout, mobile navigation, footer, safe WhatsApp entry point, reusable buttons/cards/headings, SCSS theme and favicon.
 - `feat: build multipage service and contact experience` - Home, about, service listing, six generated detail pages, contact, privacy draft and 404, including safe client-side contact-message preparation.
+- `test: add browser verification and deployment documentation` - Playwright suites, visual-capture checks, MCP configuration, Lighthouse command, robots/sitemap behavior, GitHub Pages workflow and human-facing README.
 
 ## Pending decisions or real data needed from the owner
 
@@ -35,6 +36,9 @@
 
 ## Verification status
 
-- `npm run build` also passed after the visual system was introduced.
-- `npm run build` passed after adding all routes; Astro generated 12 static pages, including six service-detail paths.
+- `npm run build` passed after all routes and production configuration; Astro generated 12 pages plus `robots.txt`.
+- Installed the Playwright Chromium browser locally. `npm test` passed all 29 browser checks against Astro development, and `npm run test:preview` passed all 29 checks against the compiled output.
+- Inspected actual Chromium captures of home at 390 px, services at 768 px and contact at 1440 px. The tablet capture exposed the labelled floating contact control intruding into a card; it was reduced to an accessible 52 px circular control at widths up to 1024 px and rechecked visually.
+- Ran Lighthouse against local production preview. Its HTML report is at `docs/audits/lighthouse.html` and is intentionally ignored by Git. No report score is claimed here because the report was not committed; review it before making performance claims for a public domain.
+- Added `opencode.json` with a validated local Playwright MCP command (`npx @playwright/mcp --help`). OpenCode loads this configuration only at startup, so this running session cannot invoke the new MCP tools; a restart is required for the mandatory MCP interaction workflow.
 - Browser installation, E2E tests, MCP inspection, Lighthouse and no-JS checks are pending implementation.

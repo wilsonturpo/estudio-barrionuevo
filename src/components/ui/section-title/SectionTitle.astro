@@ -1,11 +1,12 @@
 ---
 import "./SectionTitle.scss";
 
-const { eyebrow, title, intro, align = "start" } = Astro.props;
+const { eyebrow, title, intro, align = "start", headingLevel = "h2" } = Astro.props;
+const Heading = headingLevel;
 ---
 
 <header class:list={["section-title", `section-title--${align}`]}>
   {eyebrow && <p class="eyebrow">{eyebrow}</p>}
-  <h2 class="section-title__heading">{title}</h2>
+  <Heading class="section-title__heading">{title}</Heading>
   {intro && <p class="section-title__intro">{intro}</p>}
 </header>
