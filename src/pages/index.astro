@@ -1,13 +1,103 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/sections/hero/Hero.astro";
+import ServiceGroup from "../components/sections/services/ServiceGroup.astro";
+import Faq from "../components/sections/faq/Faq.astro";
+import CallToAction from "../components/sections/call-to-action/CallToAction.astro";
+import SectionTitle from "../components/ui/section-title/SectionTitle.astro";
+import site from "../data/site.json";
+import services from "../data/services.json";
+import faqs from "../data/faq.json";
+import { localUrl } from "../utils/links.js";
+import { whatsappUrl } from "../utils/whatsapp.js";
+
+const workers = services.filter((service) => service.category === "trabajadores" && service.featured);
+const businesses = services.filter((service) => service.category === "empresas" && service.featured);
+const consultationUrl = whatsappUrl(site.whatsapp.number, "Hola, deseo realizar una consulta laboral.") || localUrl("/contacto/");
+const consultationLabel = site.whatsapp.number ? "Consultar por WhatsApp" : "Coordinar una consulta";
 ---
 
 <BaseLayout currentPath="/">
-  <section class="section">
-    <div class="container">
-      <p class="eyebrow">Sitio en construcción</p>
-      <h1>Estudio Jurídico Laboral</h1>
-      <p>La estructura inicial del sitio se encuentra en implementación.</p>
+  <Hero
+    eyebrow="Derecho laboral · Perú"
+    title="Decisiones laborales con una mirada clara y serena."
+    intro="Un espacio de orientación inicial para trabajadores y empresas que buscan comprender sus opciones antes de dar el siguiente paso."
+    ctaHref={consultationUrl}
+    ctaLabel={consultationLabel}
+  />
+
+  <section class="section home-introduction">
+    <div class="container home-introduction__grid">
+      <div>
+        <p class="eyebrow">Una conversación bien planteada</p>
+        <h2>Escuchar primero. Orientar con claridad.</h2>
+      </div>
+      <div>
+        <p>Este sitio presenta la estructura de atención de <strong>{site.name}</strong>, nombre utilizado únicamente como demostración. El enfoque es comprender el contexto, ordenar la información relevante y explicar los siguientes pasos con lenguaje directo.</p>
+        <p class="provisional-note">Los servicios, datos de contacto y perfiles profesionales deben ser revisados por el estudio antes de su publicación definitiva.</p>
+      </div>
     </div>
   </section>
+
+  <section class="section section--ivory">
+    <div class="container">
+      <SectionTitle eyebrow="Áreas de orientación" title="Servicios pensados para cada contexto" intro="Contenido demostrativo que puede ajustarse a la práctica y alcance definitivo del estudio." />
+      <div class="home-services">
+        <ServiceGroup title="trabajadores" description="Consultas para trabajadores" services={workers} />
+        <ServiceGroup title="empresas" description="Consultas para empresas" services={businesses} />
+      </div>
+      <a class="home-services__all" href={localUrl("/servicios/")}>Ver todos los servicios <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle eyebrow="Nuestro enfoque" title="Una atención que prioriza el contexto" />
+      <div class="home-values">
+        <article><span>01</span><h3>Comunicación directa</h3><p>Explicaciones comprensibles para que cada consulta parta de información ordenada.</p></article>
+        <article><span>02</span><h3>Mirada preventiva</h3><p>Atención inicial orientada a identificar asuntos, documentos y decisiones que requieren revisión.</p></article>
+        <article><span>03</span><h3>Trato responsable</h3><p>Sin promesas de resultados ni conclusiones anticipadas sobre situaciones particulares.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--ivory">
+    <div class="container">
+      <SectionTitle eyebrow="Cómo iniciar" title="Un proceso sencillo para orientar la primera conversación" />
+      <ol class="home-process">
+        <li><span>1</span><div><h3>Comparta una consulta breve</h3><p>Indique si consulta como trabajador o empresa y el asunto general, sin enviar datos sensibles.</p></div></li>
+        <li><span>2</span><div><h3>Ordenamos el contexto</h3><p>Identifique fechas, comunicaciones y documentos que ayuden a entender la situación.</p></div></li>
+        <li><span>3</span><div><h3>Coordine el siguiente paso</h3><p>El canal de atención definitivo debe ser confirmado por el estudio antes de publicar el sitio.</p></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container home-faq">
+      <SectionTitle eyebrow="Preguntas frecuentes" title="Información para preparar su consulta" />
+      <Faq items={faqs} />
+    </div>
+  </section>
+
+  <CallToAction title="¿Desea organizar una consulta laboral?" text="Cuéntenos el tema de manera breve. Esta versión no almacena el contenido del formulario." href={localUrl("/contacto/")} label="Ir a contacto" />
 </BaseLayout>
+
+<style>
+  .home-introduction__grid { display: grid; gap: var(--space-5); }
+  .home-introduction h2 { margin-top: var(--space-2); max-width: 32rem; }
+  .home-introduction p + p { margin-top: var(--space-4); }
+  .home-services { margin-top: var(--space-5); }
+  .home-services__all { color: var(--color-primary); display: inline-block; font-weight: 700; margin-top: var(--space-5); text-decoration-thickness: 1px; text-underline-offset: 0.25em; }
+  .home-values { display: grid; gap: var(--space-3); margin-top: var(--space-5); }
+  .home-values article { border-top: 1px solid var(--color-border); padding-top: var(--space-3); }
+  .home-values span { color: var(--color-secondary-hover); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; }
+  .home-values h3 { margin-top: var(--space-3); }
+  .home-values p { color: var(--color-text-muted); margin-top: var(--space-2); }
+  .home-process { display: grid; gap: var(--space-4); list-style: none; margin-top: var(--space-5); }
+  .home-process li { align-items: flex-start; display: flex; gap: var(--space-3); }
+  .home-process span { align-items: center; background: var(--color-primary); border-radius: 50%; color: var(--color-white); display: inline-flex; flex: 0 0 auto; height: 2.25rem; justify-content: center; width: 2.25rem; }
+  .home-process h3 { font-size: 1.45rem; }
+  .home-process p { color: var(--color-text-muted); margin-top: var(--space-1); }
+  .home-faq { max-width: 58rem; }
+  @media (min-width: 48rem) { .home-introduction__grid { grid-template-columns: 0.8fr 1.2fr; } .home-values { grid-template-columns: repeat(3, 1fr); } .home-process { grid-template-columns: repeat(3, 1fr); } }
+</style>

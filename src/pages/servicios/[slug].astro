@@ -1,0 +1,62 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Button from "../../components/ui/button/Button.astro";
+import CallToAction from "../../components/sections/call-to-action/CallToAction.astro";
+import services from "../../data/services.json";
+import site from "../../data/site.json";
+import { localUrl } from "../../utils/links.js";
+import { whatsappUrl } from "../../utils/whatsapp.js";
+
+export function getStaticPaths() {
+  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const audienceLabel = service.category === "trabajadores" ? "Para trabajadores" : "Para empresas";
+const contactUrl = whatsappUrl(site.whatsapp.number, `Hola, deseo realizar una consulta sobre ${service.title}.`) || localUrl("/contacto/");
+const relatedServices = services.filter((item) => item.category === service.category && item.slug !== service.slug).slice(0, 2);
+---
+
+<BaseLayout title={service.title} currentPath="/servicios/" description={service.summary}>
+  <section class="service-detail-hero section">
+    <div class="container">
+      <a class="service-detail__back" href={localUrl("/servicios/")}>← Volver a servicios</a>
+      <p class="eyebrow">{audienceLabel}</p>
+      <h1>{service.title}</h1>
+      <p>{service.introduction}</p>
+      <Button href={contactUrl} variant="primary">{site.whatsapp.number ? "Consultar por WhatsApp" : "Coordinar una consulta"}</Button>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container service-detail__grid">
+      <aside><p class="eyebrow">¿A quién se dirige?</p><p>{service.audience}</p></aside>
+      <div class="service-detail__content">
+        <section><h2>Aspectos que suelen requerir orden</h2><ul>{service.commonIssues.map((item) => <li>{item}</li>)}</ul></section>
+        <section><h2>Alcance de la orientación inicial</h2><ul>{service.scope.map((item) => <li>{item}</li>)}</ul></section>
+        <section><h2>Preguntas que pueden ayudarle a prepararse</h2><ol>{service.questions.map((item) => <li>{item}</li>)}</ol></section>
+      </div>
+    </div>
+  </section>
+  {relatedServices.length > 0 && <section class="section section--ivory"><div class="container"><p class="eyebrow">También podría interesarle</p><div class="service-detail__related">{relatedServices.map((item) => <a href={localUrl(`/servicios/${item.slug}/`)}><span>{item.title}</span><span aria-hidden="true">→</span></a>)}</div></div></section>}
+  <CallToAction title="Cuéntenos brevemente su consulta" text="La información de esta página es general. El contacto inicial permite comprender su contexto sin adelantar conclusiones." href={localUrl("/contacto/")} label="Ir a contacto" />
+</BaseLayout>
+
+<style>
+  .service-detail-hero { background: var(--color-tertiary); }
+  .service-detail-hero .container { max-width: 64rem; }
+  .service-detail__back { color: var(--color-text-muted); display: inline-block; font-size: 0.9rem; margin-bottom: var(--space-6); text-underline-offset: 0.25em; }
+  .service-detail-hero h1 { margin-top: var(--space-2); }
+  .service-detail-hero p:not(.eyebrow) { color: var(--color-text-muted); font-size: 1.15rem; margin-top: var(--space-4); max-width: 48rem; }
+  .service-detail-hero .button { margin-top: var(--space-5); }
+  .service-detail__grid { display: grid; gap: var(--space-6); }
+  .service-detail__grid aside { background: var(--color-primary); color: #eee5da; height: fit-content; padding: var(--space-4); }
+  .service-detail__grid aside .eyebrow { color: #e7c795; }
+  .service-detail__grid aside p:not(.eyebrow) { margin-top: var(--space-2); }
+  .service-detail__content { display: grid; gap: var(--space-6); }
+  .service-detail__content ul, .service-detail__content ol { color: var(--color-text-muted); margin-top: var(--space-3); padding-left: 1.2rem; }
+  .service-detail__content li + li { margin-top: var(--space-2); }
+  .service-detail__related { display: grid; gap: var(--space-2); margin-top: var(--space-3); max-width: 48rem; }
+  .service-detail__related a { align-items: center; background: var(--color-white); border: 1px solid var(--color-border); color: var(--color-primary); display: flex; font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; justify-content: space-between; padding: var(--space-3); text-decoration: none; }
+  .service-detail__related a:hover { border-color: var(--color-secondary); }
+  @media (min-width: 48rem) { .service-detail__grid { grid-template-columns: minmax(14rem, 0.55fr) 1.45fr; } }
+</style>

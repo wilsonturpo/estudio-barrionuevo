@@ -1,0 +1,61 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionTitle from "../components/ui/section-title/SectionTitle.astro";
+import CallToAction from "../components/sections/call-to-action/CallToAction.astro";
+import team from "../data/team.json";
+import { localUrl } from "../utils/links.js";
+---
+
+<BaseLayout title="Nosotros" currentPath="/nosotros/" description="Presentación de demostración del enfoque de un estudio jurídico laboral peruano.">
+  <section class="about-hero section">
+    <div class="container about-hero__grid">
+      <div>
+        <p class="eyebrow">Nosotros</p>
+        <h1>Una práctica laboral construida desde la escucha.</h1>
+        <p>Este es un espacio de presentación para un estudio jurídico laboral. Su contenido final debe reflejar información profesional comprobada y autorizada.</p>
+      </div>
+      <figure class="about-hero__visual">
+        <div aria-hidden="true" class="about-hero__canvas"><span>Espacio editorial<br />para una imagen autorizada</span></div>
+        <figcaption>La fotografía del equipo o de una obra solo se incorporará con autorización de uso.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section--ivory">
+    <div class="container about-philosophy">
+      <SectionTitle eyebrow="Filosofía" title="Rigor en el análisis, cercanía en la conversación" />
+      <div class="about-philosophy__text"><p>La atención laboral exige comprender tanto los documentos como las personas y decisiones involucradas. La propuesta de esta versión es ofrecer una primera conversación ordenada, prudente y fácil de entender.</p><p>No se incluyen resultados, credenciales ni afirmaciones profesionales que no hayan sido entregadas y verificadas por el estudio.</p></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <SectionTitle eyebrow="Equipo" title="Perfiles pendientes de validación" intro="Los siguientes espacios son deliberadamente provisionales y no representan personas, credenciales o experiencias reales." />
+      <div class="about-team">
+        {team.map((member) => <article><div class="about-team__mark" aria-hidden="true">BN</div><p class="eyebrow">{member.role}</p><h3>{member.name}</h3><p>{member.description}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <CallToAction title="Conversemos sobre su consulta" text="El formulario de esta versión está preparado para proteger la información y no almacena sus respuestas." href={localUrl("/contacto/")} label="Contactar" />
+</BaseLayout>
+
+<style>
+  .about-hero__grid { align-items: center; display: grid; gap: var(--space-6); }
+  .about-hero h1 { margin-top: var(--space-2); max-width: 45rem; }
+  .about-hero p:not(.eyebrow) { color: var(--color-text-muted); font-size: 1.12rem; margin-top: var(--space-4); max-width: 38rem; }
+  .about-hero__canvas { align-items: end; aspect-ratio: 4 / 5; background: linear-gradient(145deg, #695448, #2c211d 70%); border: 1px solid var(--color-secondary); color: #f6f0e7; display: flex; padding: var(--space-4); }
+  .about-hero__canvas::before { border: 1px solid rgb(255 255 255 / 35%); content: ""; inset: 1.25rem; position: absolute; }
+  .about-hero__canvas { position: relative; }
+  .about-hero__canvas span { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem); line-height: 1; position: relative; }
+  .about-hero figcaption { color: var(--color-text-muted); font-size: 0.8rem; margin-top: var(--space-2); }
+  .about-philosophy { display: grid; gap: var(--space-5); }
+  .about-philosophy__text { color: var(--color-text-muted); max-width: 43rem; }
+  .about-philosophy__text p + p { margin-top: var(--space-3); }
+  .about-team { display: grid; gap: var(--space-3); margin-top: var(--space-5); }
+  .about-team article { border: 1px solid var(--color-border); padding: var(--space-4); }
+  .about-team__mark { align-items: center; background: var(--color-tertiary); border-radius: 50%; color: var(--color-primary); display: flex; font-family: var(--font-display); font-size: 1.5rem; height: 3.5rem; justify-content: center; margin-bottom: var(--space-4); width: 3.5rem; }
+  .about-team h3 { margin-top: var(--space-2); }
+  .about-team p:not(.eyebrow) { color: var(--color-text-muted); margin-top: var(--space-2); }
+  @media (min-width: 48rem) { .about-hero__grid { grid-template-columns: 1.25fr 0.75fr; } .about-philosophy { grid-template-columns: 0.85fr 1.15fr; } .about-team { grid-template-columns: repeat(2, 1fr); } }
+</style>

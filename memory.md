@@ -24,6 +24,7 @@
 
 - `chore: initialize Astro project foundation` - Git repository, local dependencies, static build configuration, ignore rules and continuity record.
 - `feat: add editable content and shared visual system` - JSON content catalogues, accessible base layout, mobile navigation, footer, safe WhatsApp entry point, reusable buttons/cards/headings, SCSS theme and favicon.
+- `feat: build multipage service and contact experience` - Home, about, service listing, six generated detail pages, contact, privacy draft and 404, including safe client-side contact-message preparation.
 
 ## Pending decisions or real data needed from the owner
 
@@ -35,4 +36,5 @@
 ## Verification status
 
 - `npm run build` also passed after the visual system was introduced.
+- `npm run build` passed after adding all routes; Astro generated 12 static pages, including six service-detail paths.
 - Browser installation, E2E tests, MCP inspection, Lighthouse and no-JS checks are pending implementation.

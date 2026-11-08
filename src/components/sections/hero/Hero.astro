@@ -1,0 +1,23 @@
+---
+import "./Hero.scss";
+import Button from "../../ui/button/Button.astro";
+
+const { eyebrow, title, intro, ctaHref, ctaLabel } = Astro.props;
+---
+
+<section class="home-hero">
+  <div class="home-hero__texture" aria-hidden="true"></div>
+  <div class="home-hero__inner container">
+    <div class="home-hero__copy">
+      <p class="eyebrow home-hero__eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p class="home-hero__intro">{intro}</p>
+      <Button href={ctaHref} variant="secondary">{ctaLabel} <span aria-hidden="true">→</span></Button>
+      <p class="home-hero__note">Información general y orientación inicial. Cada situación requiere una evaluación propia.</p>
+    </div>
+    <div class="home-hero__mark" aria-hidden="true">
+      <span class="home-hero__mark-line"></span>
+      <span class="home-hero__mark-text">Derecho<br />laboral<br /><em>con claridad</em></span>
+    </div>
+  </div>
+</section>

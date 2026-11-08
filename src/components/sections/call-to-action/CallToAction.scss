@@ -1,0 +1,13 @@
+@use "../../../styles/abstracts/mixins" as *;
+
+.contact-cta { background: var(--color-primary); color: #eee5da; padding-block: clamp(3.5rem, 8vw, 5rem); }
+.contact-cta__inner { align-items: center; display: grid; gap: var(--space-4); }
+.contact-cta h2 { color: var(--color-white); margin-top: var(--space-2); }
+.contact-cta p:not(.eyebrow) { margin-top: var(--space-2); max-width: 43rem; }
+.contact-cta__eyebrow { color: #e7c795; }
+.contact-cta .button { justify-self: start; }
+
+@include tablet-up {
+  .contact-cta__inner { grid-template-columns: 1fr auto; }
+  .contact-cta .button { justify-self: end; }
+}

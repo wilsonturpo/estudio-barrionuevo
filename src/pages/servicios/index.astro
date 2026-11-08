@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import SectionTitle from "../../components/ui/section-title/SectionTitle.astro";
+import ServiceGroup from "../../components/sections/services/ServiceGroup.astro";
+import CallToAction from "../../components/sections/call-to-action/CallToAction.astro";
+import services from "../../data/services.json";
+import { localUrl } from "../../utils/links.js";
+
+const workers = services.filter((service) => service.category === "trabajadores");
+const businesses = services.filter((service) => service.category === "empresas");
+---
+
+<BaseLayout title="Servicios" currentPath="/servicios/" description="Servicios de demostración para consultas laborales de trabajadores y empresas.">
+  <section class="services-heading section">
+    <div class="container">
+      <SectionTitle eyebrow="Servicios" title="Orientación laboral según el contexto de su consulta" intro="Las áreas presentadas son ejemplos editables. No constituyen asesoría individualizada ni implican resultados." />
+    </div>
+  </section>
+  <section class="section section--ivory">
+    <div class="container">
+      <ServiceGroup title="trabajadores" description="Para trabajadores" services={workers} />
+      <ServiceGroup title="empresas" description="Para empresas" services={businesses} />
+    </div>
+  </section>
+  <CallToAction title="¿No sabe por dónde empezar?" text="Describa el tema de manera breve y elija el público de su consulta. No comparta información sensible en el primer contacto." href={localUrl("/contacto/")} label="Coordinar una consulta" />
+</BaseLayout>

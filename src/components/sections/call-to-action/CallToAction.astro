@@ -1,0 +1,17 @@
+---
+import "./CallToAction.scss";
+import Button from "../../ui/button/Button.astro";
+
+const { title, text, href, label } = Astro.props;
+---
+
+<section class="contact-cta">
+  <div class="contact-cta__inner container">
+    <div>
+      <p class="eyebrow contact-cta__eyebrow">Primer contacto</p>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <Button href={href} variant="secondary">{label} <span aria-hidden="true">→</span></Button>
+  </div>
+</section>

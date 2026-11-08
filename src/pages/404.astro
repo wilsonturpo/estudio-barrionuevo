@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/ui/button/Button.astro";
+import { localUrl } from "../utils/links.js";
+---
+
+<BaseLayout title="Página no encontrada" noindex={true} currentPath="">
+  <section class="not-found section"><div class="container"><p class="eyebrow">Error 404</p><h1>Esta página no está disponible.</h1><p>Puede volver al inicio o explorar las áreas de orientación del estudio.</p><div><Button href={localUrl("/")}>Volver al inicio</Button><Button href={localUrl("/servicios/")} variant="outline">Ver servicios</Button></div></div></section>
+</BaseLayout>
+
+<style>
+  .not-found { min-height: 60vh; padding-top: clamp(6rem, 15vw, 10rem); text-align: center; }
+  .not-found .container { max-width: 48rem; }
+  .not-found h1 { margin-top: var(--space-2); }
+  .not-found p:not(.eyebrow) { color: var(--color-text-muted); font-size: 1.1rem; margin: var(--space-4) auto 0; }
+  .not-found div { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; margin-top: var(--space-5); }
+</style>

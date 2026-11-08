@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Política de privacidad" description="Borrador de política de privacidad sujeto a validación legal por el estudio." currentPath="">
+  <section class="privacy-hero section section--ivory"><div class="container"><p class="eyebrow">Borrador sujeto a validación</p><h1>Política de privacidad</h1><p>Este texto es una estructura inicial y no constituye la política definitiva del estudio. Debe ser revisado y completado antes de cualquier publicación comercial.</p></div></section>
+  <article class="privacy-content section"><div class="container"><p class="provisional-note">No se han incorporado identidad del responsable, RUC, domicilio, plazos de conservación ni bases legales específicas porque esos datos no han sido proporcionados ni verificados.</p><h2>1. Finalidad de este formulario</h2><p>La versión actual permite que la persona usuaria redacte un mensaje que, solo si se configura un número válido, se abre en la aplicación o web de WhatsApp elegida por la persona usuaria. El sitio no recibe, almacena ni analiza el contenido del formulario.</p><h2>2. Información que se solicita</h2><p>El formulario solicita nombre, tipo general de consulta, asunto y una descripción breve. No solicite ni envíe DNI, documentos laborales, archivos, información de salud u otros datos sensibles mediante este canal inicial.</p><h2>3. Canales y decisiones de la persona usuaria</h2><p>El envío del mensaje es una acción expresa de la persona usuaria. Cuando se configure un canal definitivo, sus condiciones de tratamiento deberán ser evaluadas e incorporadas a esta política.</p><h2>4. Derechos y contacto</h2><p>Esta sección debe completarse con un canal verificable del responsable del tratamiento y con la información aplicable en Perú, luego de la revisión legal correspondiente.</p><h2>5. Vigencia y cambios</h2><p>La fecha de vigencia, versión definitiva y mecanismo de actualización serán definidos por el estudio antes de poner esta política en funcionamiento.</p></div></article>
+</BaseLayout>
+
+<style>
+  .privacy-hero h1 { margin-top: var(--space-2); }
+  .privacy-hero p:not(.eyebrow) { color: var(--color-text-muted); font-size: 1.1rem; margin-top: var(--space-4); max-width: 48rem; }
+  .privacy-content .container { max-width: 50rem; }
+  .privacy-content h2 { font-size: clamp(1.6rem, 3vw, 2.1rem); margin-top: var(--space-6); }
+  .privacy-content h2 + p { color: var(--color-text-muted); margin-top: var(--space-2); }
+</style>

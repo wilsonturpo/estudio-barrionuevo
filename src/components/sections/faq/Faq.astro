@@ -1,0 +1,14 @@
+---
+import "./Faq.scss";
+
+const { items } = Astro.props;
+---
+
+<div class="faq-list">
+  {items.map((item) => (
+    <details class="faq-list__item">
+      <summary>{item.question}<span aria-hidden="true">+</span></summary>
+      <p>{item.answer}</p>
+    </details>
+  ))}
+</div>
