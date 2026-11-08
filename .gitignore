@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+playwright-report/
+test-results/
+blob-report/
+docs/audits/
+.env
+.env.*
+!.env.example
+*.local

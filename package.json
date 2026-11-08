@@ -1,0 +1,29 @@
+{
+  "name": "estudiobarrionuevo",
+  "version": "1.0.0",
+  "description": "Sitio estático del Estudio Jurídico Laboral Barrio Nuevo.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [
+    "astro",
+    "derecho-laboral",
+    "peru"
+  ],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.7",
+    "sass": "^1.108.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.65.0"
+  }
+}
