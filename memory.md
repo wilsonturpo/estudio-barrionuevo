@@ -40,6 +40,7 @@
 - The owner chose to publish without contact channels. Placeholder email, phone, WhatsApp, schedule, location, team cards, contact form and floating contact button were removed from the public output. Contact now states that channels are being updated and no data is collected.
 - A verified privacy policy and real contact/legal data remain necessary before enabling any collection form or contact destination.
 - GitHub CLI was installed with owner authorization and authenticated as `wilsonturpo`. The verified public target repository is `https://github.com/wilsonturpo/estudio-barrionuevo`; it was confirmed empty before configuring it as `origin`.
+- The first public visual review identified a mobile navigation overlay that exposed the hero behind the open menu. The menu now covers the remaining viewport at mobile widths; regression tests pass before redeployment.
 
 ## Verification status
 
