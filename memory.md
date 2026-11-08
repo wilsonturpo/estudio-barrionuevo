@@ -41,4 +41,13 @@
 - Inspected actual Chromium captures of home at 390 px, services at 768 px and contact at 1440 px. The tablet capture exposed the labelled floating contact control intruding into a card; it was reduced to an accessible 52 px circular control at widths up to 1024 px and rechecked visually.
 - Ran Lighthouse against local production preview. Its HTML report is at `docs/audits/lighthouse.html` and is intentionally ignored by Git. No report score is claimed here because the report was not committed; review it before making performance claims for a public domain.
 - Added `opencode.json` with a validated local Playwright MCP command (`npx @playwright/mcp --help`). OpenCode loads this configuration only at startup, so this running session cannot invoke the new MCP tools; a restart is required for the mandatory MCP interaction workflow.
+
+### 2026-11-08 - Playwright MCP verification after OpenCode restart
+
+- Playwright MCP loaded successfully after the user restarted OpenCode. It inspected the compiled preview at `http://127.0.0.1:4323/`.
+- Navigated interactively through Inicio, Nosotros, Servicios, `despido-arbitrario`, `beneficios-sociales` and Contacto.
+- Opened a FAQ item, opened the 390 px mobile menu and navigated from it, then completed the contact form with fictitious data. The form displayed the safe demonstration status and did not navigate to a WhatsApp recipient.
+- Inspected actual MCP screenshots at desktop (1440 px home), mobile (390 px home with open menu) and tablet (768 px services). The premium visual system, spacing, typography, card grid, responsive navigation and circular mobile/tablet contact control rendered correctly. No further visual change was required.
+- MCP console contained zero errors and its filtered network request view contained no failed dynamic requests.
+- Pending commit: record completed MCP validation.
 - Browser installation, E2E tests, MCP inspection, Lighthouse and no-JS checks are pending implementation.
